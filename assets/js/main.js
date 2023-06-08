@@ -260,3 +260,75 @@
   new PureCounter();
 
 })()
+
+/*--------------------------------------------------------------
+# moving element
+--------------------------------------------------------------*/
+// var movingElement_1 = document.querySelector('.moving-element-1');
+// var totalDistance = document.querySelector('.moving-element-1').offsetWidth;
+
+// var markerInterval = totalDistance *0.25;
+
+// var imageContainers_1 = document.querySelectorAll('.content-sub-container-1');
+// console.log(imageContainers_1);
+
+// setInterval(function() {
+//   for (var j = 0; j < imageContainers_1.length; j++) {
+//     var paragraph = imageContainers_1[j].querySelector('p');
+//     paragraph.classList.remove('bold-marker');
+//   }
+
+//   var currentIndex = Math.floor((movingElement_1.offsetLeft- movingElement_1.parentElement.offsetWidth) / markerInterval);
+//   var nextIndex = (currentIndex + 1) % imageContainers_1.length;
+
+//   var nextParagraph = imageContainers_1[nextIndex].querySelector('p');
+//   nextParagraph.classList.add('bold-marker');
+// }, 1000)
+
+// var movingElement_2 = document.querySelector('.moving-element-2');
+// var totalDistance2 = document.querySelector('.moving-element-2').offsetWidth;
+// var markerInterval2 = totalDistance2 *0.25;
+// var imageContainers_2 = document.querySelectorAll('.content-sub-container-2');
+// console.log(imageContainers_2);
+
+// setInterval(function() {
+//   for (var j = 0; j < imageContainers_2.length; j++) {
+//     var paragraph2 = imageContainers_2[j].querySelector('p');
+//     paragraph2.classList.remove('bold-marker');
+//   }
+
+//   var currentIndex2 = Math.floor((movingElement_2.offsetLeft- movingElement_2.parentElement.offsetWidth) / markerInterval2);
+//   var nextIndex2 = (currentIndex2 + 1) % imageContainers_2.length;
+
+//   var nextParagraph2 = imageContainers_2[nextIndex2].querySelector('p');
+//   nextParagraph2.classList.add('bold-marker');
+// }, 1000)
+
+var paragraphs = Array.from(document.querySelectorAll('.content-sub-container-1 p'));
+paragraphs.splice(3, 1);
+var currentIndex = 0;
+
+function boldNextParagraph() {
+  paragraphs[currentIndex].classList.remove('bold-marker');
+  currentIndex = (currentIndex + 1) % paragraphs.length;
+  paragraphs[currentIndex].classList.add('bold-marker');
+}
+
+boldNextParagraph(); 
+
+setInterval(boldNextParagraph, 2500); 
+
+var paragraphs2 = Array.from(document.querySelectorAll('.content-sub-container-2 p'));
+  paragraphs2.splice(3, 1); 
+
+  var currentIndex2 = paragraphs2.length - 1;
+
+  function boldNextParagraph2() {
+    paragraphs2[currentIndex2].classList.remove('bold-marker');
+    currentIndex2 = (currentIndex2 - 1 + paragraphs2.length) % paragraphs2.length;
+    paragraphs2[currentIndex2].classList.add('bold-marker');
+  }
+
+  boldNextParagraph2(); 
+
+  setInterval(boldNextParagraph2, 2500); 
