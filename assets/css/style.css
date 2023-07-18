@@ -1673,4 +1673,130 @@ section {
   font-size: large;
   text-align: center;
 }
+@media (max-width: 767px) {
+  .larger-container {
+    display: inline-block;
+    width: 100%;
+  }
 
+  .image-container {
+    justify-content: center;
+    width: 100%;
+    text-align: center;
+  }
+  .image-container img{
+    width: 33.3%;
+    height: auto;
+  }
+  .content-container{
+    width: 100%;
+  }
+  .content-container p{
+    width: 100%;
+    margin:0px;
+    font-size: small;
+  }
+}
+
+@media (min-width: 768px) {
+  .image-container {
+    width: 50%;
+    text-align: center;
+  }
+  .image-container img{
+    width: 65%;
+    height: auto;
+  }
+}
+
+@media (min-width: 992px) {
+  .image-container {
+    width: 33.33%;
+  }
+}
+
+/*--------------------------------------------------------------
+# moving element-1
+--------------------------------------------------------------*/
+.moving-element-1 {
+  width: 10px;
+  height: 10px;
+  background-color: #4b2d87;
+  position: relative;
+  animation: move-horizontal 10s linear infinite;
+}
+
+.moving-element-1::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -20px;
+  width: 20px;
+  height: 100%;
+  background-color: #4b2d87;
+  opacity: 0.5;
+  animation: tail-effect 10s linear infinite;
+}
+
+@keyframes move-horizontal {
+  0% {
+    left: 0;
+  }
+  100% {
+    left: calc(100%);
+  }
+}
+
+@keyframes tail-effect {
+  0% {
+    opacity: 0.5;
+  }
+  100% {
+    opacity: 0;
+    left: -20px;
+  }
+}
+
+.bold-marker {
+  font-weight: bold;
+}
+/*--------------------------------------------------------------
+# moving element-2
+--------------------------------------------------------------*/
+.moving-element-2 {
+  width: 10px;
+  height: 10px;
+  background-color: #4b2d87;
+  position: relative;
+  animation: move-horizontal-2 10s linear infinite;
+}
+.moving-element-2::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: -20px;
+  width: 20px;
+  height: 100%;
+  background-color: #4b2d87;
+  opacity: 0.5;
+  animation: tail-effect-2 10s linear infinite;
+}
+
+@keyframes move-horizontal-2 {
+  0% {
+    left: 100%;
+  }
+  100% {
+    left: -100px;
+  }
+}
+
+@keyframes tail-effect-2 {
+  0% {
+    opacity: 0.5;
+  }
+  100% {
+    opacity: 0;
+    right: -20px;
+  }
+}
